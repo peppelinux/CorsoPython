@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import random
 
+__massimo = 1000
 
 def prendi_numero():
     name = input('scrivi un numero intero: ')
@@ -11,12 +12,15 @@ def prendi_numero():
     return int(name)
 
 
-def esegui(num=None):
-    massimo = 1000
+def seleziona_numero_casuale(massimo=__massimo):
+    return random.randint(0, massimo)
+
+
+def esegui(num=None, massimo=__massimo):
     if num and num > massimo:
         raise Exception('Il numero immesso non può essere maggiore di {}'.format(massimo))
 
-    numero = num or random.randint(0, massimo)
+    numero = num or seleziona_numero_casuale(massimo)
     tentativi = 1
     while 1:
         n = prendi_numero()

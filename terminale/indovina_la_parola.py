@@ -13,8 +13,8 @@ class IndovinaParola:
         print(('La parola da indovinare '
                'contiene {} caratteri').format(len(parola)))
 
-
-    def get_parola_casuale(self, file_lista_parole='./lista_parole.txt'):
+    @classmethod
+    def get_parola_casuale(cls, file_lista_parole='./lista_parole.txt'):
         with open(file_lista_parole, 'r') as f:
             lista_parole = f.readlines()
         random.shuffle(lista_parole)
